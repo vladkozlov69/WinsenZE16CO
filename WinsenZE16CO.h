@@ -14,9 +14,9 @@ private:
 	uint8_t _index = 0;
 	enum STATUS { STATUS_WAITING, STATUS_OK };
 	uint8_t _payload[9];
-	uint16_t _checksum;
-	uint16_t _calculatedChecksum;
-	double * _data;
+	unsigned char _checksum;
+	unsigned char _calculatedChecksum;
+	unsigned long * _data;
 	STATUS _status;
 	void readLoop();
 public:

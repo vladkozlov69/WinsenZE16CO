@@ -59,7 +59,8 @@ void WinsenZE16CO::readLoop()
 
 	    if (_index == 8)
 	    {
-	        _calculatedChecksum = 0xFF - _calculatedChecksum + 1;
+			
+	        _calculatedChecksum = (~_calculatedChecksum) + 1;
 
 	        *_data = _payload[4] * 256 + _payload[5];
 
@@ -67,6 +68,11 @@ void WinsenZE16CO::readLoop()
 	        {
 	          _status = STATUS_OK;
 	        }
+			
+			 Serial.println();
+			// Serial.println(_calculatedChecksum);
+			// Serial.println(_checksum);
+			// Serial.println();
 
 	        _index = 0;
 	        return;
